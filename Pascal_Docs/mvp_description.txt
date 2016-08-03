@@ -1,0 +1,187 @@
+<<<<<<< HEAD
+##########################################
+#										 #
+#		     Problem solving 			 #
+#										 #
+##########################################
+
+
+
+
+
+############ Market place ############
+
+The key feature of this proof of concept is the market place, meaning the opportunity to registered users to contact other registered users for swap voice volumes or bandwidth data. For this, the registered users have the option for editing targets of leads via a basic HMI (form with some fields), and posting online. These targets will be visible (on the worldmap) to other registered users. Getting in contact with other registred users will be done by sending contact request when answering to targets. Contacts requests will be manage like LinkedIn (send request , and accept request)
+
+This proof of concept aims to make the demonstration that this apps will find users and that it's a real problem solving.
+I will continue explaining the market place when, we agree on the principile of working together.
+
+Market place is a tool that allows operators to but/sell volumes/data by issuing targets. See the Mockup attached, displaying the interface.
+This market place allows users to
+1) post targtes (buy/sell)
+2) accept targets
+3) visualize targets on worldmap
+4) visualize all targets in rows (see ALT.png)
+
+Below are the data structure for users 
+
+############ Data user ############
+- user_login (varchar)
+- user_full name (varchar)
+- user_companie (varchar)
+- user_operator_id (int)
+- user_position (varchar)
+- user_profile (int) [1 = freemium, 2 = premium, 3 = admin]
+- user_contacts (Tel, email, mail, mobile phone) (varchar)
+
+
+
+and targets
+
+############ Data target ############
+- target id (int)
+- target_destination_id (int)
+- target_user_submitter_id (int)
+- target_user_validator_id (int)
+- target_bidder_user_id (int)
+- target_operator_id (int)
+- target_name (varchar)
+- target_status (int) [1 = draft, 2 = pending, 3 = validated, 4 = cancelled ]
+- target_comment (char)
+- target_start_date (int) timestamp
+- target_end_date (int) timestamp
+- target_summitted_at (int) timestamp
+- target_updated_at (int) timestamp
+- target_validated_at (int) timestamp
+- target_bidder_operator_id (int)
+- target_exchange_rate (float)
+- target_currency (int) [1= EURO, 2 = USD, 3 = GBP, 4 = SDR]
+- target_revenues (float)
+- target_volumes (double)
+- target_technology (int) [1 = voice, 2 = data]
+- target_QoS (varchar)
+- target_type (int) [1 = sell, 2 = buy]
+- target_codes (varchar)
+- target_rate (float)
+- target_hits_info (int)
+- target_quality (int) [1 = premium, 2 = Best effort]
+
+How does the targets work:
+Only premium users can create, edit, delete(draft status only) targets or answer targets.
+To create a target, the user need to access the Market Place page (button market place on landing page for registered premium users).
+After accessing the Market Place page, the user can access all existing targets by 2 differents views:
+1) worldmap highlighting the geolocalized targets
+2) a compiled array showing rows (see png files), with worldmap on backgound
+There different views of target depending of the user.
+A user (target_user_submitter_id) can see its own target with the view target_view_owner.png
+A user (target_bidder_user_id) can see all targets pending (only this status) with the view target_view_bidder.png and can bid to accept the target
+Targets with status, draft, validated or cancelled can be viewed by only the target owner (target_user_submitter_id)
+
+To create a target, the target_user_submitter_id will fill each row with the correct info (view target_view_owner.png). Node will catch every event and save in the fly all entries into the database as draft status. A target will be valid when all the rows are filled (red color when target not valid and green color when target valid). The target_user_submitter_id user will publish the target by button action publish. An event will be broadcasted to all connected users to notify that a new target is pending
+When a target is pending, modications are disabled and the target_user_submitter_id user cannot edit the target anymore
+
+To bid, user (target_bidder_user_id) can fill rows:
+- rate bidder
+- comment
+and do action button Bid
+When user do action button Bid, the target_user_submitter_id user gets a notification and target_hits_info increments +1.
+The target owner can visualize the number of target_hits_info in view target_view_owner.png. To see who bid the target_user_submitter_id user can follow the link in row bidder(s) on target_view_owner.png.
+The view target_detailview_owner.png can display, the differents bidders, their comments and the rate they bid.
+This view is visible only by the target_user_submitter_id user. target_user_submitter_id user can then validate only 1 bid. When 1 line is validated, the target status become validate, no bid can be made anymore (not visible to any other user than target_user_submitter_id user). In view target_detailview_owner.png, the other lines ramain without the admin action button
+=======
+##########################################
+#										 #
+#		     Problem solving 			 #
+#										 #
+##########################################
+
+
+
+
+
+############ Market place ############
+
+The key feature of this proof of concept is the market place, meaning the opportunity to registered users to contact other registered users for swap voice volumes or bandwidth data. For this, the registered users have the option for editing targets of leads via a basic HMI (form with some fields), and posting online. These targets will be visible (on the worldmap) to other registered users. Getting in contact with other registred users will be done by sending contact request when answering to targets. Contacts requests will be manage like LinkedIn (send request , and accept request)
+
+This proof of concept aims to make the demonstration that this apps will find users and that it's a real problem solving.
+I will continue explaining the market place when, we agree on the principile of working together.
+
+Market place is a tool that allows operators to but/sell volumes/data by issuing targets. See the Mockup attached, displaying the interface.
+This market place allows users to
+1) post targtes (buy/sell)
+2) accept targets
+3) visualize targets on worldmap
+4) visualize all targets in rows (see ALT.png)
+
+Below are the data structure for users 
+
+############ Data user ############
+- user_login (varchar)
+- user_full name (varchar)
+- user_companie (varchar)
+- user_operator_id (int)
+- user_position (varchar)
+- user_profile (int) [1 = freemium, 2 = premium, 3 = admin]
+- user_contacts (Tel, email, mail, mobile phone) (varchar)
+
+
+
+and targets
+
+############ Data target ############
+- target id (int)
+- target_destination_id (int)
+- target_user_submitter_id (int)
+- target_user_validator_id (int)
+- target_bidder_user_id (int)
+- target_operator_id (int)
+- target_name (varchar)
+- target_status (int) [1 = draft, 2 = pending, 3 = validated, 4 = cancelled ]
+- target_comment (char)
+- target_start_date (int) timestamp
+- target_end_date (int) timestamp
+- target_summitted_at (int) timestamp
+- target_updated_at (int) timestamp
+- target_validated_at (int) timestamp
+- target_bidder_operator_id (int)
+- target_exchange_rate (float)
+- target_currency (int) [1= EURO, 2 = USD, 3 = GBP, 4 = SDR]
+- target_revenues (float)
+- target_volumes (double)
+- target_technology (int) [1 = voice, 2 = data]
+- target_QoS (varchar)
+- target_type (int) [1 = sell, 2 = buy]
+- target_codes (varchar)
+- target_rate (float)
+- target_hits_info (int)
+- target_quality (int) [1 = premium, 2 = Best effort]
+
+How does the targets work:
+Only premium users can create, edit, delete(draft status only) targets or answer targets.
+To create a target, the user need to access the Market Place page (button market place on landing page for registered premium users).
+After accessing the Market Place page, the user can access all existing targets by 2 differents views:
+1) worldmap highlighting the geolocalized targets
+2) a compiled array showing rows (see png files), with worldmap on backgound
+There different views of target depending of the user.
+A user (target_user_submitter_id) can see its own target with the view target_view_owner.png
+A user (target_bidder_user_id) can see all targets pending (only this status) with the view target_view_bidder.png and can bid to accept the target
+Targets with status, draft, validated or cancelled can be viewed by only the target owner (target_user_submitter_id)
+
+To create a target, the target_user_submitter_id will fill each row with the correct info (view target_view_owner.png). Node will catch every event and save in the fly all entries into the database as draft status. A target will be valid when all the rows are filled (red color when target not valid and green color when target valid). The target_user_submitter_id user will publish the target by button action publish. An event will be broadcasted to all connected users to notify that a new target is pending
+When a target is pending, modications are disabled and the target_user_submitter_id user cannot edit the target anymore
+
+To bid, user (target_bidder_user_id) can fill rows:
+- rate bidder
+- comment
+and do action button Bid
+When user do action button Bid, the target_user_submitter_id user gets a notification and target_hits_info increments +1.
+The target owner can visualize the number of target_hits_info in view target_view_owner.png. To see who bid the target_user_submitter_id user can follow the link in row bidder(s) on target_view_owner.png.
+The view target_detailview_owner.png can display, the differents bidders, their comments and the rate they bid.
+This view is visible only by the target_user_submitter_id user. target_user_submitter_id user can then validate only 1 bid. When 1 line is validated, the target status become validate, no bid can be made anymore (not visible to any other user than target_user_submitter_id user). In view target_detailview_owner.png, the other lines ramain without the admin action button
+
+Testing
+<<<<<<< HEAD
+>>>>>>> 883afd7622e598c316d25c1e7f4b04e54cef28cf
+=======
+Testing #2
+>>>>>>> cf61a0eea6d1091f74378e34afc950d152882678

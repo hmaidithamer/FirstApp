@@ -1,0 +1,28 @@
+{
+  "targets": [
+    {
+      "id": "1",
+      "Destination": "Senegal mab Tigo",
+      "Codes": "2214,2217",
+      "Rate": "0.2840",
+      "Currency": "EUR",
+      "Quality": "Premium",
+      "QoS": "38% - 125 - 59",
+      "Volume": "10000000",
+      "Type": "buy",
+      "Technology": "Voice"
+    },
+    {
+      "id": "2",
+      "Destination": "Ivory Cost Mob MTN",
+      "Codes": "2214,2217",
+      "Rate": "0.2313",
+      "Currency": "EUR",
+      "Quality": "Premium",
+      "QoS": "38% - 125 - 59",
+      "Volume": "10000000",
+      "Type": "buy",
+      "Technology": "Voice"
+    }
+  ]
+}

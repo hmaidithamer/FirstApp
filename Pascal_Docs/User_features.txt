@@ -1,0 +1,27 @@
+##########################################
+#										 #
+#		     User features   			 #
+#										 #
+##########################################
+
+On loading page, the user can see the landing page with a world map. Landing page shows minimum information, world map on the background and text explaining what the Apps is (see landing.png). 
+Login button allows user to login with an existing account, or they will need to create an account with button Sign up.
+
+Once signed in, registred user has a freemium account with restricted rights:
+he can navigatre through the world map with limited informations: 
+1) Worldmap vision
+2) Country vision with (user can only see the operators present in this country)
+The Apps will display a tips info to allow user upgrade to premium account and unlock full features.
+
+To access premium account, the user needs to request a 1 month trial (the code can be configured to set a variable timing for the MVP). The request is a email validation sent to the admin who will answer with a code sent to the user (or another simple method)
+Once user upgrades to premium account, he can now access full user features:
+Worlddmap vision
+Continent vision
+Country vision
+Data encapsulation
+Data structure
+Numbering plan
+Operator vision
+Market place
+Send invitations to other users to join Tailcom (referral program)
+

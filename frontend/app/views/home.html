@@ -1,0 +1,142 @@
+<div ng-controller="homeController">
+    <div class="target-list">
+        <div class="row">
+            <div class="col-md-offset-10">
+                <a href="" class="btn btn-info" data-toggle="modal" data-target="#newTarget">New Target</a>
+                <div class="clearfix"><br></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+
+
+                <table class="table table-responsive ">
+                    <thead>
+                    <tr class="active">
+                        <th>id #</th>
+                        <th>Destination</th>
+                        <th>Codes</th>
+                        <th>Rate</th>
+                        <th>Currency</th>
+                        <th>Quality</th>
+                        <th>QoS(ASR-Aloc-ACD)</th>
+                        <th>Volume(per month)</th>
+                        <th>Type</th>
+                        <th>Technology</th>
+                        <th>Admin</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+
+                    <tr class="active" ng-repeat="target in targets">
+                        <td># {{target.id}}</td>
+                        <td>{{target.Destination}}</td>
+                        <td>{{target.Codes}}</td>
+                        <td>{{target.Rate}}</td>
+                        <td>{{target.Currency}}</td>
+                        <td>{{target.Quality}}</td>
+                        <td>{{target.QoS}}</td>
+                        <td>{{target.Volume}}</td>
+                        <td>{{target.Type}}</td>
+                        <td>{{target.Technology}}</td>
+
+                        <td><a class="btn btn-default">Publish</a></td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {{ target | json }}
+    <!-- List Of Modal-->
+    <div id="newTarget" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">New Target</h4>
+                </div>
+                <div class="modal-body">
+
+                    <form name="form" ng-model="target" novalidate ng-submit="submit(target)">
+                        <div class="form-group">
+                            <label for="destination">Destination:</label>
+                            <input type="text" required="required" ng-model="target.Destination" class="form-control"
+                                   id="Destination" name="Destination">
+
+
+                        </div>
+                        <div class="form-group">
+                            <label for="codes">Codes:</label>
+                            <input type="text" required="required" name="Codes" ng-model="target.Codes"
+                                   class="form-control" id="codes">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="rate">Rate:</label>
+                            <input type="text" required="required" name="Rate" ng-model="target.Rate"
+                                   class="form-control" id="rate">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="currency">Currency:</label>
+                            <input type="text" required="required" name="Currency" ng-model="target.Currency"
+                                   class="form-control" id="currency">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="quality">Quality:</label>
+                            <input type="text" required="required" name="Quality" ng-model="target.Quality"
+                                   class="form-control" id="quality">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="QoS">QoS:</label>
+                            <input type="text" required="required" name="QoS" ng-model="target.QaS" class="form-control"
+                                   id="QoS">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="volume">Volume:</label>
+                            <input type="text" required="required" name="Volume" ng-model="target.Volume"
+                                   class="form-control" id="volume">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="type">Type:</label>
+                            <input type="text" required="required" name="Type" ng-model="target.Type"
+                                   class="form-control" id="type">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="technology">Technology:</label>
+                            <input type="text" required="required" name="Technology" ng-model="target.Technology"
+                                   class="form-control" id="technology">
+
+                        </div>
+
+
+                        <button type="submit" class="btn btn-default">Save</button>
+
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </form>
+
+                </div>
+
+                <div class="modal-footer">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- End List of Modal-->
+</div>
+

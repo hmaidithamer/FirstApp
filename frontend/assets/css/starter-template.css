@@ -1,0 +1,34 @@
+body {
+  padding-top: 40px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+th {
+  text-align: center;
+}
+
+.ng-invalid.ng-dirty{
+  border-color: #FA787E;
+}
+.ng-valid.ng-dirty{
+  border-color: #78FA89;
+}
+
+form{
+  text-align: left;
+}
+
+.formVal{
+  color:red;
+}
+
+footer{
+  padding-top: 160px;
+  text-align: right;
+
+}
+
+
